@@ -1,6 +1,6 @@
 module ScimEngine
   module ComplexTypes
-    # Represent the complex email type.
+    # Represents the complex email type.
     # @see ScimEngine::Schema::Email
     class Email < Base
       set_schema ScimEngine::Schema::Email
