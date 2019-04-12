@@ -5,7 +5,7 @@ module ScimEngine
     class Email < Base
       set_schema ScimEngine::Schema::Email
 
-      # returns the json representation of an email.
+      # Returns the json representation of an email.
       def as_json(options = {})
         {'type' => 'work', 'primary' => true}.merge(super(options))
       end
