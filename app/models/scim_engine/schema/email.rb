@@ -1,5 +1,7 @@
 module ScimEngine
   module Schema
+    # Represnts the schema for the Email complex type
+    # @see ScimEngine::ComplexTypes::Email
     class Email < Base
       def self.scim_attributes
         @scim_attributes ||= [

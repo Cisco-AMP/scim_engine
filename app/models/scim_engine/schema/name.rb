@@ -1,5 +1,7 @@
 module ScimEngine
   module Schema
+    # Represnts the schema for the Name complex type
+    # @see ScimEngine::ComplexTypes::Name
     class Name < Base
 
       def self.scim_attributes
