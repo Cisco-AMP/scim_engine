@@ -1,0 +1,28 @@
+module ScimEngine
+  class ResourceType
+    include ActiveModel::Model
+    attr_accessor :meta, :endpoint, :schema, :schemas, :id, :name, :schemaExtensions
+
+    def initialize(attributes = {})
+      default_attributes = {
+        meta: Meta.new(
+          'resourceType': 'ResourceType'
+        ),
+        schemas: ['urn:ietf:params:scim:schemas:core:2.0:ResourceType']
+      }
+      super(default_attributes.merge(attributes))
+    end
+
+
+    def as_json(options = {})
+      without_extensions = super(except: 'schemaExtensions')
+      if schemaExtensions.present?
+        extensions = schemaExtensions.map{|extension| {"schema" => extension, "required" => false}}
+        without_extensions.merge('schemaExtensions' => extensions)
+      else
+        without_extensions
+      end
+    end
+
+  end
+end
