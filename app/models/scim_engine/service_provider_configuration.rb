@@ -1,4 +1,5 @@
 module ScimEngine
+  # Represnts the service provider info. Used by the /ServiceProviderConfig endpoint to privide specification compliance, authentication schemes, data models.
   class ServiceProviderConfiguration
     include ActiveModel::Model
 

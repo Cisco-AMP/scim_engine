@@ -1,4 +1,5 @@
 module ScimEngine
+  # Provides info about a resource type. Instances of this class are used to provide info through the /ResourceTypes endpoint of a SCIM service provider.
   class ResourceType
     include ActiveModel::Model
     attr_accessor :meta, :endpoint, :schema, :schemas, :id, :name, :schemaExtensions

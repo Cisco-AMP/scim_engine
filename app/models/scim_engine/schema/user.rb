@@ -1,5 +1,7 @@
 module ScimEngine
   module Schema
+    # Represnts the schema for the User resource
+    # @see ScimEngine::Resources::User
     class User < Base
 
       def initialize(options = {})

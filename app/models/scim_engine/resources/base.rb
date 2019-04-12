@@ -1,5 +1,6 @@
 module ScimEngine
   module Resources
+    # The base class for all SCIM resources.
     class Base
       include ActiveModel::Model
       include ScimEngine::Schema::DerivedAttributes
@@ -27,6 +28,34 @@ module ScimEngine
         flattened
       end
 
+      # Can be used to extend an existing resource type's schema
+      # @example
+      #  module Scim
+      #    module Schema
+      #      class MyExtension < ScimEngine::Schema::Base
+      #
+      #        def initialize(options = {})
+      #          super(name: 'ExtendedGroup',
+      #                id: self.class.id,
+      #                description: 'Represents extra info about a group',
+      #                scim_attributes: self.class.scim_attributes)
+      #        end
+      #
+      #        def self.id
+      #          'urn:ietf:params:scim:schemas:extension:extendedgroup:2.0:Group'
+      #        end
+      #
+      #        def self.scim_attributes
+      #          [ScimEngine::Schema::Attribute.new(name: 'someAddedAttribute',
+      #                         type: 'string',
+      #                         required: true,
+      #                         canonicalValues: ['FOO', 'BAR'])]
+      #        end
+      #      end
+      #    end
+      #  end
+      #
+      #  ScimEngine::Resources::Group.extend_schema Scim::Schema::MyExtention
       def self.extend_schema(schema)
         derive_attributes_from_schema(schema)
         extended_schemas << schema

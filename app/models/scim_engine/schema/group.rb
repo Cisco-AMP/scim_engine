@@ -1,5 +1,7 @@
 module ScimEngine
   module Schema
+    # Represnts the schema for the Group resource
+    # @see ScimEngine::Resources::Group
     class Group < Base
 
       def initialize(options = {})

@@ -1,5 +1,7 @@
 module ScimEngine
   module Schema
+    # Represnts the schema for the Reference complex type
+    # @see ScimEngine::ComplexTypes::Reference
     class Reference < Base
       def self.scim_attributes
         @scim_attributes ||= [
