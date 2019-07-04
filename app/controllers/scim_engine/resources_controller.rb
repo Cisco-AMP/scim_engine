@@ -11,8 +11,8 @@ module ScimEngine
     end
 
     def create(resource_type, &block)
-      if resource_params[:id].present? || resource_params[:externalId].present?
-        handle_scim_error(ErrorResponse.new(status: 400, detail: 'id and externalId are not valid parameters for create'))
+      if resource_params[:id].present?
+        handle_scim_error(ErrorResponse.new(status: 400, detail: 'id is not a valid parameter for create'))
         return
       end
       with_scim_resource(resource_type) do |resource|
