@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    scim_engine (1.0.2)
+    scim_engine (2.1.0)
       rails (= 5.0.7.2)
 
 GEM
