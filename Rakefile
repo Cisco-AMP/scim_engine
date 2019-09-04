@@ -20,6 +20,13 @@ load 'rails/tasks/engine.rake'
 
 load 'rails/tasks/statistics.rake'
 
-
-
 Bundler::GemHelper.install_tasks
+
+require "rspec/core/rake_task"
+
+desc "Run all examples"
+RSpec::Core::RakeTask.new(:spec) do |t|
+  t.ruby_opts = %w[-w]
+end
+task :default => :spec
+
