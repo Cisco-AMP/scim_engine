@@ -1,5 +1,7 @@
 # ScimEngine
 
+[![Build Status](https://travis-ci.org/Cisco-AMP/scim_engine.svg?branch=master)](https://travis-ci.org/Cisco-AMP/scim_engine)
+
 ## Why ScimEngine Exists?
 
 There's no general purpose SCIM SDK for Ruby on Rails. As a result,
