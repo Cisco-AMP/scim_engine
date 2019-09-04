@@ -25,6 +25,7 @@ protocol, which may take a significant overhead compared the implementation of t
   end
 
   s.add_dependency "rails", ">= 5.0"
+  s.add_dependency "nokogiri", ">= 1.10.4"
   s.add_development_dependency 'rspec-rails', '3.8.2'
   s.add_development_dependency 'factory_bot_rails', '4.11.1'
   s.add_development_dependency 'byebug', '10.0.2'
