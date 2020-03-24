@@ -38,7 +38,6 @@ describe ScimEngine::ApplicationController do
       expect(response).not_to be_ok
     end
 
-
     it 'renders failure with bad user name and password' do
       request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Basic.encode_credentials('C', 'D')
 
@@ -46,8 +45,12 @@ describe ScimEngine::ApplicationController do
       expect(response).not_to be_ok
     end
 
+    it 'renders failure with blank password' do
+      request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Basic.encode_credentials('A', '')
 
-
+      get :index, params: { format: :scim }
+      expect(response).not_to be_ok
+    end
   end
 
 

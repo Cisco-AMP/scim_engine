@@ -7,6 +7,8 @@ module ScimEngine
 
     def authenticated?
       authenticate_with_http_basic do |name, password|
+        return handle_unauthorized unless password.present?
+
         name == ScimEngine::Engine.username && password == ScimEngine::Engine.password
       end
     end
@@ -21,6 +23,10 @@ module ScimEngine
 
     def handle_record_invalid(error_message)
       handle_scim_error(ErrorResponse.new(status: 400, detail: "Operation failed since record has become invalid: #{error_message}"))
+    end
+
+    def handle_unauthorized
+      handle_scim_error(ErrorResponse.new(status: 401, detail: "Invalid credentails"))
     end
 
     def handle_scim_error(error_response)
